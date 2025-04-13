@@ -1,15 +1,27 @@
+# 하나의 일련의 과정을 workflow라고 부른다.
+# 이거는 workflow의 이름이다.
 name: Github Actions 실행시켜보기
 
+# 어느 시점에 workflow를 실행할 것인지 설정하는 부분이다.
 on:
   push:
     branches:
       - main
 
+# 하나의 workflow는 1개 이상의 job으로 구성된다.
+# 여러 Job은 기본적으로 병렬로 실행된다.
 jobs:
-  My-Deploy-Job:
-    runs-on: ubuntu-latest
+  My-Deploy-Job: # Job의 이름을 설정하는 부분이다.
+    runs-on: ubuntu-latest  # 어떤 환경에서 실행할 것인지 설정하는 부분이다.
 
-    steps:
+    steps: # Step은 특정 작업을 수행하는 가장 작은 단위
       - name: Hello world 찍기
         run: echo "Hello world"
+
+      - name: 여러 명령어 문장 작성하기
+        run: |
+          echo "Morning"
+          echo "Afternoon"
+          echo "Evening"
+        
 

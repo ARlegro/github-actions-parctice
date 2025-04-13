@@ -25,7 +25,14 @@ jobs:
           echo "Evening"
         
       - name: Github Actions 자체에 저장되어 있는 변수 사용해보기
+        ## GITHUB_SHA는 현재 commit의 SHA를 의미한다.
+        ## GITHUB_REPOSITORY는 현재 repository의 이름을 의미한다.
         run: |
-          echo $GITHUB_SHA
+          echo $GITHUB_SHA   
           echo $GITHUB_REPOSITORY
 
+        # 노출이 안되는 값을 저장한 secret을 사용해보기 (settings -> secrets and variables -> actions)
+      - name: 아무한테 노출이 되면 안되는 값
+        run: | 
+          echo ${{ secrets.MY_NAME }}
+          echo ${{ secrets.MY_HOBBY }}
